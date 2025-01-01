@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Use of AI in Product Management within Startups</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        textarea, input, select {
+            width: 100%;
+            max-width: 500px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Use of AI in Product Management within Startups</h1>
+    <p>This survey explores how product managers in startups use AI tools, the challenges they face, and the benefits they experience. Your responses will contribute to valuable research.</p>
+    <form id="survey-form" action="/" method="POST">
+        <h2>Section 1: Personal Information</h2>
+        <!-- Q1 -->
+        <label> What is your educational background?</label><br>
+        <select name="education" required>
+            <option value="">Select</option>
+            <option value="Bachelor's degree">Bachelor's degree</option>
+            <option value="Master's degree">Master's degree</option>
+            <option value="Ph.D.">Ph.D.</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <!-- Q2 -->
+        <label for="department">Which department do you primarily work in?</label>
+        <select name="department" id="department">
+            <option value="">Select your department</option>
+            <option value="Product Management">Product Management</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+     <div id="all-questions">
+        <!-- Q3 -->
+        <label>What is your level of product management seniority?</label><br>
+        <select name="seniority" required>
+            <option value="">Select</option>
+            <option value="Associate/Junior PM">Associate/Junior PM</option>
+            <option value="Mid-level PM">Mid-level PM</option>
+            <option value="Senior PM">Senior PM</option>
+            <option value="Lead/Principal PM">Lead/Principal PM</option>
+            <option value="Director/VP of Product">Director/VP of Product</option>
+        </select><br><br>
+
+        <!-- Q4 -->
+        <label>How long have you been using AI to support product management activities?</label><br>
+        <select name="ai_experience" required>
+            <option value="">Select</option>
+            <option value="Less than 6 months">Less than 6 months</option>
+            <option value="6 months to 1 year">6 months to 1 year</option>
+            <option value="1–3 years">1–3 years</option>
+            <option value="More than 3 years">More than 3 years</option>
+        </select><br><br>
+
+        <h2>Section 2: Company Information</h2>
+        <!-- Q5 -->
+        <label>Which business domain does your company operate in?</label><br>
+        <select name="business_domain" required>
+            <option value="">Select</option>
+            <option value="SaaS">SaaS</option>
+            <option value="E-commerce">E-commerce</option>
+            <option value="Fintech">Fintech</option>
+            <option value="HealthTech">HealthTech</option>
+            <option value="EdTech">EdTech</option>
+        </select><br><br>
+
+        <!-- Q6 -->
+        <label>Where is your company geographically located?</label><br>
+        <input type="text" name="location" required><br><br>
+
+        <!-- Q7 -->
+        <label> Is your company a startup?</label></br>
+        <input type="radio" name="is_startup" value="Yes" id="startup-yes"> Yes</br>
+        <input type="radio" name="is_startup" value="No" id="startup-no"> No</br></br>
+
+
+        <!-- Q8 -->
+        <div id="question-8" class="hidden">
+            <label>How would you describe the stage of your company?</label>
+            <select name="company_stage">
+                <option value="Early stage">Early stage</option>
+                <option value="Growth stage">Growth stage</option>
+                <option value="Late stage">Late stage</option>
+            </select>
+        </div>
+
+        <!-- Q9 -->
+        <div id="question-9" class="hidden">
+            <label>What is your company’s funding stage (if known)?</label>
+            <select name="funding_stage">
+                <option value="Pre-seed">Pre-seed</option>
+                <option value="Seed">Seed</option>
+                <option value="Series A">Series A</option>
+                <option value="Series B or later">Series B or later</option>
+            </select>
+        </div>
+
+        <!-- Q10 -->
+        <label>How would you describe your company’s overall experience with AI tools?</label><br>
+        <select name="ai_experience_level" required>
+            <option value="">Select</option>
+            <option value="Limited/experimental use">Limited/experimental use</option>
+            <option value="Moderate adoption">Moderate adoption</option>
+            <option value="Extensive/strategic use">Extensive/strategic use</option>
+        </select><br><br>
+
+        <!-- Q11 -->
+        <label>How big is your product team?</label><br>
+        <select name="team_size" required>
+            <option value="">Select</option>
+            <option value="1-5 members">1-5 members</option>
+            <option value="6-10 members">6-10 members</option>
+            <option value="11-20 members">11-20 members</option>
+            <option value="More than 20 members">More than 20 members</option>
+        </select><br><br>
+
+        <h2>Section 3: AI Applications</h2>
+        <!-- Q12 -->
+        <label>12. Which AI tools or platforms do you use in your work? (Select all that apply)</label>
+<div>
+    <input type="checkbox" name="ai_tools" value="ChatGPT"> ChatGPT
+    <input type="checkbox" name="ai_tools" value="Google Gemini"> Google Gemini
+    <input type="checkbox" name="ai_tools" value="Other" id="other-tools-checkbox"> Other
+    <div id="other-tools-container" class="hidden">
+        <label for="custom-tools">Specify Other Tools:</label>
+        <input type="text" id="custom-tools" placeholder="Enter tool name">
+        <button type="button" id="add-tool-button">Add Tool</button>
+        <ul id="custom-tools-list"></ul>
+    </div>
+</div>
+<br><br>
+
+        <!-- Q13 -->
+        <label>13. For each activity below, indicate which AI tools you use:</label>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Activity</th>
+            <th>AI Tools</th>
+        </tr>
+    </thead>
+    <tbody id="ai-usage-table">
+        <!-- Rows will be dynamically added -->
+    </tbody>
+</table><br><br>
+
+        <h2>Section 4: Opportunities</h2>
+        <!-- Q14 -->
+        <label>What benefits have you experienced from using AI in product management?</label><br>
+        <select name="ai_benefits" required>
+            <option value="">Select</option>
+            <option value="Improved decision-making">Improved decision-making</option>
+            <option value="Efficiency gains">Efficiency gains</option>
+            <option value="Enhanced innovation">Enhanced innovation</option>
+            <option value="Faster feedback cycles">Faster feedback cycles</option>
+            <option value="Cost-effectiveness">Cost-effectiveness</option>
+            <option value="Customer-centric products">Customer-centric products</option>
+        </select><br><br>
+
+        <!-- Q15 -->
+        <label>How do you measure the success of AI tools in your work?</label><br>
+        <input type="text" name="success_metrics" required><br><br>
+
+        <!-- Q16 -->
+        <label>What areas of product management could AI improve most significantly?</label><br>
+        <input type="text" name="improvement_areas" required><br><br>
+
+        <h2>Section 5: Challenges</h2>
+        <!-- Q17 -->
+        <label>What challenges do you associate with using AI in your Product Management activities?</label><br>
+        <input type="text" name="ai_challenges" required><br><br>
+        <select name="ai_challenges" required>
+            <option value="">Select</option>
+            <option value="Data quality issues">Data quality issues</option>
+            <option value="Integration complexities">Integration complexities</option>
+            <option value="Trust and interpretation">Trust and interpretation</option>
+            <option value="Scalability of solutions">Scalability of solutions</option>
+            <option value="Ethical concerns">Ethical concerns</option>
+            <option value="Keeping pace with technology">Keeping pace with technology</option>
+        </select><br><br>
+
+        <h2>Section 6: Future Expectations</h2>
+        <!-- Q18 -->
+        <label>What features do you wish AI tools would have to better support your role?</label><br>
+        <textarea name="ai_desired_features" rows="3"></textarea><br><br>
+
+        <!-- Q19 -->
+        <label>Do you think AI could replace some aspects of product management? If yes, which ones?</label><br>
+        <textarea name="ai_replacement" rows="3"></textarea><br><br>
+    </div>
+        <!-- Q20 -->
+        <div id="last-question">
+        <label>If you'd like to receive a summary of the research findings, please provide your email address:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <button type="submit" value="submit">Submit</button>
+        </div>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Elements for Question 2 (Department)
+            const departmentDropdown = document.getElementById("department");
+            const allQuestions = document.getElementById("all-questions");
+            const lastQuestion = document.getElementById("last-question");
+
+            // Initial state: hide all questions except the department and last question
+            allQuestions.style.display = "none";
+
+            // Listen for changes in the department dropdown
+            departmentDropdown.addEventListener("change", function () {
+                const selectedValue = departmentDropdown.value;
+
+                if (selectedValue === "Product Management") {
+                    allQuestions.style.display = "block"; // Show other questions
+                } else {
+                    allQuestions.style.display = "none"; // Hide other questions
+                }
+            });
+
+            // Logic for Questions 7, 8, 9
+            const question7 = document.querySelectorAll('input[name="is_startup"]');
+            const question8 = document.getElementById("question-8");
+            const question9 = document.getElementById("question-9");
+    
+            question8.style.display = "none"; // Initially hide question 8
+            question9.style.display = "none"; // Initially hide question 9
+    
+            question7.forEach(input => {
+                input.addEventListener("change", () => {
+                    if (input.value === "Yes") {
+                        question8.style.display = "block"; // Show question 8
+                        question9.style.display = "block"; // Show question 9
+                    } else {
+                        question8.style.display = "none"; // Hide question 8
+                        question9.style.display = "none"; // Hide question 9
+                    }
+                });
+            });
+    
+            // Logic for AI Tools Table (Questions 12, 13)
+            // Elements for Question 12 (AI Tools)
+            const otherToolsCheckbox = document.getElementById("other-tools-checkbox");
+const otherToolsContainer = document.getElementById("other-tools-container");
+const customToolsInput = document.getElementById("custom-tools");
+const addToolButton = document.getElementById("add-tool-button");
+const customToolsList = document.getElementById("custom-tools-list");
+
+// Elements for AI Usage Table (Question 13)
+const aiTools = document.querySelectorAll('input[name="ai_tools"]');
+const usageTable = document.getElementById("ai-usage-table");
+
+const activities = [
+    "Data-driven decision-making",
+    "Experimentation and hypothesis testing",
+    "Predictive analytics",
+    "Automated quality assurance",
+    "Continuous improvment",
+    "Strategic planning"
+];
+
+// Array to hold custom tools
+const customTools = [];
+
+// Show/hide the custom tools input when "Other" is checked
+otherToolsCheckbox.addEventListener("change", () => {
+    if (otherToolsCheckbox.checked) {
+        otherToolsContainer.classList.remove("hidden");
+    } else {
+        otherToolsContainer.classList.add("hidden");
+        customTools.length = 0; // Clear custom tools
+        customToolsList.innerHTML = ""; // Clear the list
+        updateTable();
+    }
+});
+
+// Add a custom tool
+addToolButton.addEventListener("click", () => {
+    const toolName = customToolsInput.value.trim();
+    if (toolName && !customTools.includes(toolName)) {
+        customTools.push(toolName);
+        addToolToList(toolName);
+        customToolsInput.value = ""; // Clear input field
+        updateTable();
+    } else if (customTools.includes(toolName)) {
+        alert("This tool is already added.");
+    }
+});
+
+// Add custom tool to the list UI
+function addToolToList(toolName) {
+    const listItem = document.createElement("li");
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = toolName;
+    listItem.appendChild(textSpan);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.style.marginLeft = "10px";
+    editButton.addEventListener("click", () => editTool(toolName, textSpan));
+    listItem.appendChild(editButton);
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginLeft = "5px";
+    removeButton.addEventListener("click", () => removeTool(toolName, listItem));
+    listItem.appendChild(removeButton);
+
+    customToolsList.appendChild(listItem);
+}
+
+// Edit a custom tool
+function editTool(oldTool, textSpan) {
+    const newTool = prompt("Edit tool name:", oldTool);
+    if (newTool && newTool.trim() && !customTools.includes(newTool.trim())) {
+        const index = customTools.indexOf(oldTool);
+        customTools[index] = newTool.trim();
+        textSpan.textContent = newTool.trim();
+        updateTable();
+    } else if (customTools.includes(newTool.trim())) {
+        alert("This tool is already added.");
+    }
+}
+
+// Remove a custom tool
+function removeTool(toolName, listItem) {
+    const index = customTools.indexOf(toolName);
+    if (index > -1) {
+        customTools.splice(index, 1);
+        listItem.remove();
+        updateTable();
+    }
+}
+
+// Update the AI usage table (Question 13)
+aiTools.forEach(tool => {
+    tool.addEventListener("change", updateTable);
+});
+
+function updateTable() {
+    // Clear the table
+    usageTable.innerHTML = "";
+
+    // Get selected tools
+    const selectedTools = Array.from(aiTools)
+        .filter(tool => tool.checked)
+        .map(tool => tool.value);
+
+    // Combine predefined tools with custom tools
+    const allTools = [...selectedTools, ...customTools];
+
+    // Determine if "Other" column should appear
+    const includeOtherColumn = selectedTools.includes("Other") && customTools.length === 0;
+
+    if (allTools.length > 0) {
+        // Create table headers
+        const headerRow = document.createElement("tr");
+
+        const activityHeader = document.createElement("th");
+        activityHeader.textContent = "Activity";
+        headerRow.appendChild(activityHeader);
+
+        allTools.forEach(tool => {
+            if (tool !== "Other" || includeOtherColumn) {
+                const toolHeader = document.createElement("th");
+                toolHeader.textContent = tool;
+                headerRow.appendChild(toolHeader);
+            }
+        });
+        usageTable.appendChild(headerRow);
+
+        // Populate the table with activities and columns for each tool
+        activities.forEach(activity => {
+            const row = document.createElement("tr");
+
+            const activityCell = document.createElement("td");
+            activityCell.textContent = activity;
+            row.appendChild(activityCell);
+
+            allTools.forEach(tool => {
+                if (tool !== "Other" || includeOtherColumn) {
+                    const toolsCell = document.createElement("td");
+                    toolsCell.innerHTML = `<input type="checkbox" name="activity_${activity}" value="${tool}">`;
+                    row.appendChild(toolsCell);
+                }
+            });
+
+            usageTable.appendChild(row);
+        });
+    }
+}
+    });
+</script>
+    
+    
+</body>
+</html>
+        
