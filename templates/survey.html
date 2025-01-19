@@ -36,7 +36,7 @@
 
         <!-- Q2 -->
         <label for="department">Which department do you primarily work in?</label>
-        <select name="department" id="department">
+        <select name="department" id="department" required>
             <option value="">Select your department</option>
             <option value="Product Management">Product Management</option>
             <option value="Engineering">Engineering</option>
@@ -80,7 +80,16 @@
 
         <!-- Q6 -->
         <label>Where is your company geographically located?</label><br>
-        <input type="text" name="location" required><br><br>
+        <select name="continent" id="location" onchange="showCountries(this)" required>
+            <option value="">Select a continent</option>
+            <option value="Africa">Africa</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="NorthAmerica">North America</option>
+            <option value="SouthAmerica">South America</option>
+            <option value="Oceania">Oceania</option>
+            <option value="Other">Other</option>
+          </select><br><br>
 
         <!-- Q7 -->
         <label> Is your company a startup?</label></br>
@@ -91,7 +100,7 @@
         <!-- Q8 -->
         <div id="question-8" class="hidden">
             <label>How would you describe the stage of your company?</label>
-            <select name="company_stage">
+            <select name="company_stage" required>
                 <option value="Early stage">Early stage</option>
                 <option value="Growth stage">Growth stage</option>
                 <option value="Late stage">Late stage</option>
@@ -101,7 +110,7 @@
         <!-- Q9 -->
         <div id="question-9" class="hidden">
             <label>What is your company’s funding stage (if known)?</label>
-            <select name="funding_stage">
+            <select name="funding_stage" required>
                 <option value="Pre-seed">Pre-seed</option>
                 <option value="Seed">Seed</option>
                 <option value="Series A">Series A</option>
@@ -132,9 +141,9 @@
         <!-- Q12 -->
         <label>12. Which AI tools or platforms do you use in your work? (Select all that apply)</label>
 <div>
-    <input type="checkbox" name="ai_tools" value="ChatGPT"> ChatGPT
+    <input type="checkbox" name="ai_tools" value="ChatGPT" > ChatGPT
     <input type="checkbox" name="ai_tools" value="Google Gemini"> Google Gemini
-    <input type="checkbox" name="ai_tools" value="Other" id="other-tools-checkbox"> Other
+    <input type="checkbox" name="ai_tools" value="Other" id="other-tools-checkbox" > Other
     <div id="other-tools-container" class="hidden">
         <label for="custom-tools">Specify Other Tools:</label>
         <input type="text" id="custom-tools" placeholder="Enter tool name">
@@ -182,7 +191,6 @@
         <h2>Section 5: Challenges</h2>
         <!-- Q17 -->
         <label>What challenges do you associate with using AI in your Product Management activities?</label><br>
-        <input type="text" name="ai_challenges" required><br><br>
         <select name="ai_challenges" required>
             <option value="">Select</option>
             <option value="Data quality issues">Data quality issues</option>
